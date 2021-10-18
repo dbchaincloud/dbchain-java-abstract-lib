@@ -1,0 +1,30 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+    id 'maven-publish'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from(components["kotlin"])
+                groupId = 'com.github.dbchaincloud'
+                artifactId = 'dbchain-java-abstract'
+                version = '1.0.0'
+            }
+        }
+    }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+dependencies {
+    // 助记词、钱包相关
+    api("org.bitcoinj:bitcoinj-core:0.14.7") {
+        exclude group: 'com.lambdaworks'
+    }
+}
