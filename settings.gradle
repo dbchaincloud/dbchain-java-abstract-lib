@@ -7,5 +7,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "dbchain-java-abstract-lib"
-include ':app'
 include ':dbchain-java-abstract'
